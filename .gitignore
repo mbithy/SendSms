@@ -41,3 +41,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.baml
+SendSms/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+SendSms/obj/Debug/SendSms.pdb
+SendSms/obj/Debug/SendSms.csprojResolveAssemblyReference.cache
+ExampleUsage/bin/Debug/ExampleUsage.exe
+*.config
+ExampleUsage/bin/Debug/ExampleUsage.pdb
