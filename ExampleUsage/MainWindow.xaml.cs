@@ -10,7 +10,7 @@ namespace ExampleUsage
     public partial class MainWindow : Window
     {
         readonly SendSms.SendSms _smsEngine = new SendSms.SendSms();
-        SerialPort _port= new SerialPort();
+        private SerialPort _port = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -25,14 +25,11 @@ namespace ExampleUsage
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _port = _smsEngine.OpenPort(AvaillablePorts.Text);
             if (_port != null)
             {
                 try
                 {
-                    MessageBox.Show(_smsEngine.SendMessage(_port, MobileNumber.Text, Message.Text)
-                        ? "Message was sent successfuly"
-                        : "Message not Sent");
+                    MessageBox.Show(_smsEngine.SendMessage(_port, MobileNumber.Text, Message.Text)? "Message was sent successfuly": "Message not Sent");
                 }
                 catch (Exception ex)
                 {
@@ -41,7 +38,41 @@ namespace ExampleUsage
             }
             else
             {
-                MessageBox.Show("Could not connect with Modem.");
+                MessageBox.Show("You must open a port first inorder to send a message");
+            }
+        }
+
+        private void OpenPort_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _port = _smsEngine.OpenPort(AvaillablePorts.Text);
+                if (_port != null)
+                {
+                    PortStatus.Text = "Port is open at: " + AvaillablePorts.Text;
+                }
+                else
+                {
+                    PortStatus.Text = "Invalid Port Settings: " + AvaillablePorts.Text;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                PortStatus.Text = ex.Message;
+            }
+        }
+
+        private void ClosePort_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _smsEngine.ClosePort(_port);
+                PortStatus.Text = "Not Open!";
+            }
+            catch (Exception ex)
+            {
+                PortStatus.Text = ex.Message;
             }
         }
     }

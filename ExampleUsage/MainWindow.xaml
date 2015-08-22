@@ -4,12 +4,16 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button Content="Send" HorizontalAlignment="Left" Margin="289,174,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="116" Height="45" Click="Button_Click"/>
-        <TextBox x:Name="MobileNumber" HorizontalAlignment="Left" Margin="154,53,0,0" TextWrapping="Wrap" Text="0705593689" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="251"/>
-        <TextBox x:Name="Message" HorizontalAlignment="Left" Margin="154,84,0,0" TextWrapping="Wrap" Text="Test One" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="251" Height="85"/>
+        <TextBox x:Name="MobileNumber" HorizontalAlignment="Left" Margin="154,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="251"/>
+        <TextBox x:Name="Message" HorizontalAlignment="Left" Margin="154,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="251" Height="85"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,53,0,0" TextWrapping="Wrap" Text="Number:" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="139"/>
         <TextBlock HorizontalAlignment="Left" Margin="7,85,0,0" TextWrapping="Wrap" Text="Message:" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="142"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Availlable Ports" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Width="139"/>
         <ComboBox x:Name="AvaillablePorts" HorizontalAlignment="Left" Height="38" Margin="154,10,0,0" VerticalAlignment="Top" Width="251"/>
+        <Button x:Name="OpenPort" Content="Open Port" HorizontalAlignment="Left" Height="38" Margin="410,10,0,0" VerticalAlignment="Top" Click="OpenPort_Click" FontSize="18" FontWeight="Thin"/>
+        <TextBlock x:Name="PortStatus" HorizontalAlignment="Left" Height="22" Margin="154,237,0,0" TextWrapping="Wrap" Text="Not Open!" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,237,0,0" TextWrapping="Wrap" Text="Port Status:" VerticalAlignment="Top" Width="139" FontSize="18" FontWeight="Thin"/>
+        <Button x:Name="ClosePort" Content="Close Port" HorizontalAlignment="Left" Height="38" Margin="410,53,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Thin" Click="ClosePort_Click"/>
 
     </Grid>
 </Window>
